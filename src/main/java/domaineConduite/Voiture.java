@@ -3,12 +3,13 @@ package domaineConduite;
 import java.util.Observable;
 
 public class Voiture extends Observable {
+	public static final int largeurDomaine = 1000;
 	private static final float TICK_ANGLE_ROTATION = 30;
+
 	private float angleDirection;
 	private int coordXEnMetres;
 	private int vitesseMetreParSecondes;
 
-	public static final int largeurDomaine = 1000;
 
 	public Voiture(int coordXEnMetres) {
 		this(coordXEnMetres, 0);
@@ -30,6 +31,12 @@ public class Voiture extends Observable {
 
 	public void avancerEnFonctionDeLaVitesse() {
 		coordXEnMetres += vitesseMetreParSecondes;
+		if(coordXEnMetres > largeurDomaine) {
+			coordXEnMetres = largeurDomaine;
+		}
+		else if(coordXEnMetres < 0) {
+			coordXEnMetres = 0;
+		}
 		notificationObservateurs();
 	}
 

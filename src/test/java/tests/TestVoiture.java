@@ -65,4 +65,18 @@ public class TestVoiture {
 		voiture.tourneADroite();
 		assertTrue(30 == voiture.getAngle());
 	}
+	
+	@Test
+	public void testLimiteSurXPositif() {
+		Voiture voiture = new Voiture(950, 100);
+		voiture.avancerEnFonctionDeLaVitesse();
+		assertTrue(1000 == voiture.getCoordXEnMetres());
+	}
+	
+	@Test
+	public void testLimiteSurXNegatif() {
+		Voiture voiture = new Voiture(50, -100);
+		voiture.avancerEnFonctionDeLaVitesse();
+		assertTrue(0 == voiture.getCoordXEnMetres());
+	}
 }
