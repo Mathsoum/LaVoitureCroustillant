@@ -35,5 +35,34 @@ public class TestVoiture {
 		assertEquals(120, voiture.getCoordXEnMetres());
 	}
 
+	@Test
+	public void testAngleDepart() {
+		Voiture voiture = new Voiture(20,100);
+		assertTrue(0 == voiture.getAngle());
+	}
+
+	@Test
+	public void testAngleApresVirageADroite() {
+		Voiture voiture = new Voiture(20);
+		voiture.tourneADroite();
+		assertTrue(30 == voiture.getAngle());
+	}
 	
+	@Test
+	public void testAngleApresVirageAGauche() {
+		Voiture voiture = new Voiture(20);
+		voiture.tourneAGauche();
+		assertTrue(-30 == voiture.getAngle());
+	}
+	
+	@Test
+	public void testAngleApresPlusieursVirages() {
+		Voiture voiture = new Voiture(20);
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		assertTrue(30 == voiture.getAngle());
+	}
 }
