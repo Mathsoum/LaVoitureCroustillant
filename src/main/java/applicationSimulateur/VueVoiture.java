@@ -31,7 +31,7 @@ public class VueVoiture implements Observer {
 
 	public int transformerMetrePixel(int coordonneeXEnMetre) {
 
-		int ratioDomaineFenetre = Voiture.largeurDomaine / DessinVoiture.TAILLE_FENETRE_EN_PIXEL;
+		int ratioDomaineFenetre = Voiture.LIMITE_X_MAX / DessinVoiture.TAILLE_FENETRE_EN_PIXEL;
 
 		int coordonneeXEnPixels = coordonneeXEnMetre / ratioDomaineFenetre;
 

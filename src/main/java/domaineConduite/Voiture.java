@@ -3,13 +3,17 @@ package domaineConduite;
 import java.util.Observable;
 
 public class Voiture extends Observable {
+	public static final int LIMITE_X_MIN = 0;
+	public static final int LIMITE_X_MAX = 1000;
+	
+	public static final int LIMITE_Y_MIN = 0;
+	public static final int LIMITE_Y_MAX = 1000;
+	
 	private static final float TICK_ANGLE_ROTATION = 30;
 	private float angleDirection;
 	private int coordXEnMetres;
 	private int coordYEnMetres;
 	private int vitesseMetreParSecondes;
-
-	public static final int largeurDomaine = 1000;
 
 	public Voiture(int coordXEnMetres, int coordYEnMetres) {
 		this(coordXEnMetres, coordYEnMetres, 0);
@@ -36,7 +40,14 @@ public class Voiture extends Observable {
 
 	public void avancerEnFonctionDeLaVitesse() {
 		coordXEnMetres += vitesseMetreParSecondes * Math.cos(Math.toRadians(angleDirection));
+		coordXEnMetres = Math.max(coordXEnMetres, LIMITE_X_MIN);
+		coordXEnMetres = Math.min(coordXEnMetres, LIMITE_X_MAX);
+		
+		
 		coordYEnMetres += vitesseMetreParSecondes * Math.sin(Math.toRadians(angleDirection));
+		coordYEnMetres = Math.max(coordYEnMetres, LIMITE_Y_MIN);
+		coordYEnMetres = Math.min(coordYEnMetres, LIMITE_Y_MAX);
+
 		notificationObservateurs();
 	}
 

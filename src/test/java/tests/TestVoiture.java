@@ -133,4 +133,58 @@ public class TestVoiture {
 		assertEquals(100, voiture.getCoordYEnMetres());
 		
 	}
+	
+	@Test
+	public void testLimiteBassesX() {
+		Voiture voiture = new Voiture(0, 500, 5) ;
+
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		
+		voiture.avancerEnFonctionDeLaVitesse();
+
+		assertEquals(0, voiture.getCoordXEnMetres());
+		
+	}
+	
+	@Test
+	public void testLimiteBassesY() {
+		Voiture voiture = new Voiture(500, 0, 5) ;
+
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		
+		voiture.avancerEnFonctionDeLaVitesse();
+
+		assertEquals(0, voiture.getCoordYEnMetres());
+		
+	}
+	
+	@Test
+	public void testLimiteHautesX() {
+		Voiture voiture = new Voiture(1000, 500, 5) ;
+		
+		voiture.avancerEnFonctionDeLaVitesse();
+
+		assertEquals(1000, voiture.getCoordXEnMetres());
+	}
+	
+	@Test
+	public void testLimiteHautesY() {
+		Voiture voiture = new Voiture(500, 1000, 5) ;
+
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
+		
+		voiture.avancerEnFonctionDeLaVitesse();
+
+		assertEquals(1000, voiture.getCoordYEnMetres());
+		
+	}
 }
