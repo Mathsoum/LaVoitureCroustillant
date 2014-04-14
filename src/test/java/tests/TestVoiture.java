@@ -185,6 +185,5 @@ public class TestVoiture {
 		voiture.avancerEnFonctionDeLaVitesse();
 
 		assertEquals(1000, voiture.getCoordYEnMetres());
-		
 	}
 }
