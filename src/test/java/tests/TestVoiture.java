@@ -59,27 +59,27 @@ public class TestVoiture {
 	}
 
 	@Test
-	public void testAngleApresVirageADroite() {
+	public void testAngleApresVirageAGauche() {
 		Voiture voiture = new Voiture(20, 30);
-		voiture.tourneADroite();
+		voiture.tourneAGauche();
 		assertEquals(-30, voiture.getAngle(), .05);
 	}
 	
 	@Test
-	public void testAngleApresVirageAGauche() {
+	public void testAngleApresVirageADroite() {
 		Voiture voiture = new Voiture(20, 30);
-		voiture.tourneAGauche();
+		voiture.tourneADroite();
 		assertEquals(30, voiture.getAngle(), .05);
 	}
 	
 	@Test
 	public void testAngleApresPlusieursVirages() {
 		Voiture voiture = new Voiture(20, 30);
+		voiture.tourneADroite();
+		voiture.tourneADroite();
 		voiture.tourneAGauche();
 		voiture.tourneAGauche();
-		voiture.tourneADroite();
-		voiture.tourneADroite();
-		voiture.tourneADroite();
+		voiture.tourneAGauche();
 		assertEquals(-30, voiture.getAngle(), .05);
 	}
 	
@@ -107,9 +107,9 @@ public class TestVoiture {
 	public void testMiseAJourPositionRotationGauche(){
 		Voiture voiture = new Voiture(100, 100, 5) ;
 
-		voiture.tourneAGauche();
-		voiture.tourneAGauche();
-		voiture.tourneAGauche();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
 		
 		voiture.avancerEnFonctionDeLaVitesse();
 
@@ -122,9 +122,9 @@ public class TestVoiture {
 	public void testMiseAJourPositionRotationDroite(){
 		Voiture voiture = new Voiture(100, 100, 5) ;
 
-		voiture.tourneADroite();
-		voiture.tourneADroite();
-		voiture.tourneADroite();
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
 		
 		voiture.avancerEnFonctionDeLaVitesse();
 
@@ -172,9 +172,9 @@ public class TestVoiture {
 	public void testLimiteBassesY() {
 		Voiture voiture = new Voiture(500, 0, 5) ;
 
-		voiture.tourneADroite();
-		voiture.tourneADroite();
-		voiture.tourneADroite();
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
+		voiture.tourneAGauche();
 		
 		voiture.avancerEnFonctionDeLaVitesse();
 
@@ -195,9 +195,9 @@ public class TestVoiture {
 	public void testLimiteHautesY() {
 		Voiture voiture = new Voiture(500, 1000, 5) ;
 
-		voiture.tourneAGauche();
-		voiture.tourneAGauche();
-		voiture.tourneAGauche();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
+		voiture.tourneADroite();
 		
 		voiture.avancerEnFonctionDeLaVitesse();
 

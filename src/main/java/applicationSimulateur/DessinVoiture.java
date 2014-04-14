@@ -12,6 +12,7 @@ public class DessinVoiture extends JFrame {
 	public static final int POSITION_Y = 200;
 	
 	private int xPixelVoiture;
+	private int yPixelVoiture;
 
 	public DessinVoiture() {
 		super();
@@ -30,20 +31,21 @@ public class DessinVoiture extends JFrame {
 
 	public void dessinerVoiture(int xPixelVoiture, Graphics graphics) {
 		
+		// TODO : oops -> xPixelVoiture
 		
 		graphics.setColor(Color.RED);
 		Polygon rectangle = new Polygon();
-		rectangle.addPoint(xPixelVoiture - 20, POSITION_Y - 10);
-		rectangle.addPoint(xPixelVoiture - 20, POSITION_Y + 10);
-		rectangle.addPoint(xPixelVoiture + 20, POSITION_Y + 10);
-		rectangle.addPoint(xPixelVoiture + 20, POSITION_Y - 10);
+		rectangle.addPoint(xPixelVoiture - 20, yPixelVoiture - 10); 
+		rectangle.addPoint(xPixelVoiture - 20, yPixelVoiture + 10);
+		rectangle.addPoint(xPixelVoiture + 20, yPixelVoiture + 10);
+		rectangle.addPoint(xPixelVoiture + 20, yPixelVoiture - 10);
 		graphics.fillPolygon(rectangle);
 		
 		graphics.setColor(Color.WHITE);
 		Polygon triangle = new Polygon();
-		triangle.addPoint(xPixelVoiture, POSITION_Y - 10);
-		triangle.addPoint(xPixelVoiture, POSITION_Y + 10);
-		triangle.addPoint(xPixelVoiture +20, POSITION_Y);
+		triangle.addPoint(xPixelVoiture, yPixelVoiture - 10);
+		triangle.addPoint(xPixelVoiture, yPixelVoiture + 10);
+		triangle.addPoint(xPixelVoiture +20, yPixelVoiture);
 		graphics.fillPolygon(triangle);
 		graphics.setColor(Color.BLACK);
 
@@ -51,5 +53,8 @@ public class DessinVoiture extends JFrame {
 
 	public void setXPixelVoiture(int xPixelVoiture) {
 		this.xPixelVoiture = xPixelVoiture;
+	}
+	public void setYPixelVoiture(int yPixelVoiture) {
+		this.yPixelVoiture = yPixelVoiture;
 	}
 }
