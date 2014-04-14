@@ -1,5 +1,7 @@
 package applicationSimulateur;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -8,7 +10,28 @@ import domaineConduite.Voiture;
 
 public class VueVoiture implements Observer {
 
-	
+	private class RotationListener implements KeyListener {
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if (e.getExtendedKeyCode() == KeyEvent.VK_RIGHT) {
+				voiture.tourneADroite();
+			} else if (e.getExtendedKeyCode() == KeyEvent.VK_LEFT) {
+				voiture.tourneAGauche();
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			
+		}
+		
+	}
+
 	
 	private Voiture voiture;
 
@@ -16,6 +39,7 @@ public class VueVoiture implements Observer {
 
 	public VueVoiture() {
 		this.voiture = null;
+		
 	}
 
 	public VueVoiture(Voiture voiture) {
@@ -27,6 +51,7 @@ public class VueVoiture implements Observer {
 		this.voiture = voiture;
 		this.voiture.addObserver(this);
 		this.ihm = ihm;
+		ihm.addKeyListener(new RotationListener());
 	}
 
 	public int transformerMetrePixel(int coordonneeXEnMetre) {

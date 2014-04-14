@@ -3,6 +3,7 @@ package domaineConduite;
 import java.util.Observable;
 
 public class Voiture extends Observable {
+
 	public static final int LIMITE_X_MIN = 0;
 	public static final int LIMITE_X_MAX = 1000;
 	
@@ -10,6 +11,7 @@ public class Voiture extends Observable {
 	public static final int LIMITE_Y_MAX = 1000;
 	
 	private static final float TICK_ANGLE_ROTATION = 30;
+
 	private float angleDirection;
 	private int coordXEnMetres;
 	private int coordYEnMetres;
