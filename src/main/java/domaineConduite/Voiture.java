@@ -63,4 +63,12 @@ public class Voiture extends Observable {
 	public void tourneAGauche() {
 		angleDirection += TICK_ANGLE_ROTATION;
 	}
+
+	public void accelerer() {
+		vitesseMetreParSecondes += 10;		
+	}
+
+	public void ralentir() {
+		vitesseMetreParSecondes -= 10;
+	}
 }

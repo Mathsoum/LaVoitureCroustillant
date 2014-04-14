@@ -31,6 +31,27 @@ public class VueVoiture implements Observer {
 		}
 		
 	}
+	private class VitesseListener implements KeyListener {
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if (e.getExtendedKeyCode() == KeyEvent.VK_UP) {
+				voiture.accelerer();
+			} else if (e.getExtendedKeyCode() == KeyEvent.VK_DOWN) {
+				voiture.ralentir();
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			
+		}
+		
+	}
 
 	
 	private Voiture voiture;
@@ -52,6 +73,7 @@ public class VueVoiture implements Observer {
 		this.voiture.addObserver(this);
 		this.ihm = ihm;
 		ihm.addKeyListener(new RotationListener());
+		ihm.addKeyListener(new VitesseListener());
 	}
 
 	public int transformerMetrePixel(int coordonneeXEnMetre) {

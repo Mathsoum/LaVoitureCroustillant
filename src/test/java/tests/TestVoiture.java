@@ -29,6 +29,23 @@ public class TestVoiture {
 	}
 	
 	@Test
+	public void testAccelerer() {
+		Voiture voiture = new Voiture(20, 30, 150);
+		
+		assertEquals(150,voiture.getVitesseMetreParSecondes());
+		voiture.accelerer();		
+		assertEquals(160,voiture.getVitesseMetreParSecondes());
+	}
+	@Test
+	public void testRalentir() {
+		Voiture voiture = new Voiture(20, 30, 150);
+		
+		assertEquals(150,voiture.getVitesseMetreParSecondes());
+		voiture.ralentir();		
+		assertEquals(140,voiture.getVitesseMetreParSecondes());
+	}
+	
+	@Test
 	public void testMiseAjourPositionEnFonctionVitesse() {
 		Voiture voiture = new Voiture(20, 30, 100);
 		voiture.avancerEnFonctionDeLaVitesse();
@@ -132,19 +149,5 @@ public class TestVoiture {
 		assertEquals(95, voiture.getCoordXEnMetres());
 		assertEquals(100, voiture.getCoordYEnMetres());
 		
-	}
-	
-	@Test
-	public void testLimiteSurXPositif() {
-		Voiture voiture = new Voiture(950, 100);
-		voiture.avancerEnFonctionDeLaVitesse();
-		assertTrue(1000 == voiture.getCoordXEnMetres());
-	}
-	
-	@Test
-	public void testLimiteSurXNegatif() {
-		Voiture voiture = new Voiture(50, -100);
-		voiture.avancerEnFonctionDeLaVitesse();
-		assertTrue(0 == voiture.getCoordXEnMetres());
 	}
 }
