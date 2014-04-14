@@ -8,21 +8,27 @@ public class Voiture extends Observable {
 
 	private float angleDirection;
 	private int coordXEnMetres;
+	private int coordYEnMetres;
 	private int vitesseMetreParSecondes;
 
 
-	public Voiture(int coordXEnMetres) {
-		this(coordXEnMetres, 0);
+	public Voiture(int coordXEnMetres, int coordYEnMetres) {
+		this(coordXEnMetres, coordYEnMetres, 0);
 	}
 
-	public Voiture(int coordXEnMetres, int vitesseMetreParSecondes) {
+	public Voiture(int coordXEnMetres, int coordYEnMetres, int vitesseMetreParSecondes) {
 		this.coordXEnMetres = coordXEnMetres;
+		this.coordYEnMetres = coordYEnMetres;
 		this.vitesseMetreParSecondes = vitesseMetreParSecondes;
 		this.angleDirection = 0;
 	}
 
 	public int getCoordXEnMetres() {
 		return coordXEnMetres;
+	}
+
+	public int getCoordYEnMetres() {
+		return coordYEnMetres;
 	}
 
 	public int getVitesseMetreParSecondes() {
@@ -37,6 +43,8 @@ public class Voiture extends Observable {
 		else if(coordXEnMetres < 0) {
 			coordXEnMetres = 0;
 		}
+		coordXEnMetres += vitesseMetreParSecondes * Math.cos(Math.toRadians(angleDirection));
+		coordYEnMetres += vitesseMetreParSecondes * Math.sin(Math.toRadians(angleDirection));
 		notificationObservateurs();
 	}
 
@@ -50,9 +58,9 @@ public class Voiture extends Observable {
 	}
 
 	public void tourneADroite() {
-		angleDirection += TICK_ANGLE_ROTATION;
+		angleDirection -= TICK_ANGLE_ROTATION;
 	}
 	public void tourneAGauche() {
-		angleDirection -= TICK_ANGLE_ROTATION;
+		angleDirection += TICK_ANGLE_ROTATION;
 	}
 }
