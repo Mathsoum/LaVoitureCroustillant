@@ -1,6 +1,8 @@
 package applicationSimulateur;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
@@ -33,5 +35,4 @@ public class DessinVoiture extends JFrame {
 	public void setXPixelVoiture(int xPixelVoiture) {
 		this.xPixelVoiture = xPixelVoiture;
 	}
-
 }
