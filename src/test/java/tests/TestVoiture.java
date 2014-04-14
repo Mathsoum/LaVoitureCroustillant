@@ -29,6 +29,23 @@ public class TestVoiture {
 	}
 	
 	@Test
+	public void testAccelerer() {
+		Voiture voiture = new Voiture(20, 30, 150);
+		
+		assertEquals(150,voiture.getVitesseMetreParSecondes());
+		voiture.accelerer();		
+		assertEquals(160,voiture.getVitesseMetreParSecondes());
+	}
+	@Test
+	public void testRalentir() {
+		Voiture voiture = new Voiture(20, 30, 150);
+		
+		assertEquals(150,voiture.getVitesseMetreParSecondes());
+		voiture.ralentir();		
+		assertEquals(140,voiture.getVitesseMetreParSecondes());
+	}
+	
+	@Test
 	public void testMiseAjourPositionEnFonctionVitesse() {
 		Voiture voiture = new Voiture(20, 30, 100);
 		voiture.avancerEnFonctionDeLaVitesse();
