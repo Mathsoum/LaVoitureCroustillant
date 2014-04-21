@@ -27,24 +27,28 @@ public class TestVoiture {
 
 	@Test
 	public void testVitesseX() {
-		assertEquals( 50,voiture.getVitesseMetreParSecondes() );
+		assertEquals( 50, voiture.getVitesseMetreParSecondes() );
+		
+		voiture = new Voiture( 100, 200 );
+
+		assertEquals( 0, voiture.getVitesseMetreParSecondes() );
 	}
 
 	@Test
 	public void testAccelerer() {
-		assertEquals( 50,voiture.getVitesseMetreParSecondes() );
+		assertEquals( 50, voiture.getVitesseMetreParSecondes() );
 
 		voiture.accelerer();		
 
-		assertEquals( 60,voiture.getVitesseMetreParSecondes() );
+		assertEquals( 60, voiture.getVitesseMetreParSecondes() );
 	}
 	@Test
 	public void testRalentir() {
-		assertEquals( 50,voiture.getVitesseMetreParSecondes() );
+		assertEquals( 50, voiture.getVitesseMetreParSecondes() );
 
 		voiture.ralentir();		
 
-		assertEquals( 40,voiture.getVitesseMetreParSecondes() );
+		assertEquals( 40, voiture.getVitesseMetreParSecondes() );
 	}
 
 	@Test
