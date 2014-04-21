@@ -10,12 +10,10 @@ import domaineconduite.Voiture;
 public class VueVoiture implements Observer {
 
 	private class RotationListener implements KeyListener {
-
-		@Override
+		
 		public void keyTyped( KeyEvent e ) {
 		}
 
-		@Override
 		public void keyPressed( KeyEvent e ) {
 			if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
 				voiture.tourneADroite();
@@ -25,19 +23,15 @@ public class VueVoiture implements Observer {
 			}
 		}
 
-		@Override
 		public void keyReleased( KeyEvent e ) {
 		}
 		
 	}
 	
 	private class VitesseListener implements KeyListener {
-
-		@Override
 		public void keyTyped( KeyEvent event ) {
 		}
 
-		@Override
 		public void keyPressed( KeyEvent event ) {
 			if ( event.getKeyCode() == KeyEvent.VK_UP ) {
 				voiture.accelerer();
@@ -47,7 +41,6 @@ public class VueVoiture implements Observer {
 			}
 		}
 
-		@Override
 		public void keyReleased( KeyEvent event ) {
 		}
 		
@@ -73,7 +66,6 @@ public class VueVoiture implements Observer {
 		
 	}
 
-	@Override
 	public void update( Observable unused0, Object unused1 ) {
 
 		int xVoiture = this.voiture.getCoordXEnMetres();
@@ -83,6 +75,8 @@ public class VueVoiture implements Observer {
 		int yVoiture = this.voiture.getCoordYEnMetres();
 		int yPixelVoiture = this.transformerMetrePixel( yVoiture );
 		this.ihm.setYPixelVoiture( yPixelVoiture );
+		
+		this.ihm.setAngleVoiture( this.voiture.getAngle() );
 		
 		this.ihm.repaint();
 	}
