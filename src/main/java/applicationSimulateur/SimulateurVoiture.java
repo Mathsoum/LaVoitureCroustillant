@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import domaineConduite.Voiture;
+import domaineconduite.Voiture;
 
 
 public class SimulateurVoiture {

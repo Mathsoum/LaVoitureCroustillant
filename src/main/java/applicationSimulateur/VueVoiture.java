@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
-import domaineConduite.Voiture;
+import domaineconduite.Voiture;
 
 
 public class VueVoiture implements Observer {
