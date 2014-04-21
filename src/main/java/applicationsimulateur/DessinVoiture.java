@@ -3,7 +3,6 @@ package applicationsimulateur;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
-import java.awt.geom.Arc2D.Float;
 import java.awt.geom.Point2D;
 
 import javax.swing.JFrame;
