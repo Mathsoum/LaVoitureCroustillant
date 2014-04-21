@@ -26,6 +26,7 @@ public class DessinVoiture extends JFrame {
 		this.setTitle( "Simulateur de Voiture" );
 		this.setSize( TAILLE_FENETRE_EN_PIXEL, TAILLE_FENETRE_EN_PIXEL );
 		this.setVisible( true );
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public void setXPixelVoiture( int xPixelVoiture ) {

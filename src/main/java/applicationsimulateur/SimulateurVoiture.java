@@ -28,9 +28,5 @@ public final class SimulateurVoiture {
 		});
 		
 		timerAvancer.start();
-		
-		while(true){
-			// INFINITE LOOP TO PLAY WITH THE APP
-		}
 	}
 }
