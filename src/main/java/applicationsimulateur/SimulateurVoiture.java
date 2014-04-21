@@ -1,4 +1,4 @@
-package applicationSimulateur;
+package applicationsimulateur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,26 +10,27 @@ import domaineconduite.Voiture;
 
 public class SimulateurVoiture {
 
-	public static final int dureeUneSecondeEnMilliSecondes = 1000;
+	public static final int DUREE_UNE_SECONDE_EN_MILLISECONDES = 1000;
+	
+	private SimulateurVoiture() {
+	}
 
 	public static void main(String[] args) {
-		
 		DessinVoiture dessinVoiture = new DessinVoiture();
 		final Voiture voiture = new Voiture(500,500);
-		final VueVoiture triangle = new VueVoiture(voiture, dessinVoiture);
+		new VueVoiture(voiture, dessinVoiture);
 		
-		Timer timerAvancer = new Timer(dureeUneSecondeEnMilliSecondes, new ActionListener() {
-			
+		Timer timerAvancer = new Timer(DUREE_UNE_SECONDE_EN_MILLISECONDES, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				voiture.avancerEnFonctionDeLaVitesse();
-				
 			}
 		});
 		
 		timerAvancer.start();
 		
 		while(true){
+			// INFINITE LOOP TO PLAY WITH THE APP
 		}
 	}
 }
