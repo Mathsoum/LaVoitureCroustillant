@@ -14,4 +14,12 @@
   </dependencies>
 
 
+  <name>La voiture Croustillant</name>
+  <organization>
+  	<name>Les semi croustillants</name>
+  </organization>
+  <ciManagement>
+  	<system>Jenkins</system>
+  	<url>https://jenkins.vannier.pro</url>
+  </ciManagement>
 </project>

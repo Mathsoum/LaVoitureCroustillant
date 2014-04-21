@@ -7,7 +7,6 @@ import java.util.Observer;
 
 import domaineconduite.Voiture;
 
-
 public class VueVoiture implements Observer {
 
 	private class RotationListener implements KeyListener {
@@ -18,9 +17,9 @@ public class VueVoiture implements Observer {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if (e.getExtendedKeyCode() == KeyEvent.VK_RIGHT) {
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 				voiture.tourneADroite();
-			} else if (e.getExtendedKeyCode() == KeyEvent.VK_LEFT) {
+			} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 				voiture.tourneAGauche();
 			}
 		}
@@ -39,9 +38,9 @@ public class VueVoiture implements Observer {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if (e.getExtendedKeyCode() == KeyEvent.VK_UP) {
+			if (e.getKeyCode() == KeyEvent.VK_UP) {
 				voiture.accelerer();
-			} else if (e.getExtendedKeyCode() == KeyEvent.VK_DOWN) {
+			} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 				voiture.ralentir();
 			}
 		}
