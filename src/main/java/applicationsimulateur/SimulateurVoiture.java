@@ -8,7 +8,7 @@ import javax.swing.Timer;
 import domaineconduite.Voiture;
 
 
-public class SimulateurVoiture {
+public final class SimulateurVoiture {
 
 	public static final int DUREE_UNE_SECONDE_EN_MILLISECONDES = 1000;
 	
