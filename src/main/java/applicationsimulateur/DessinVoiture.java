@@ -56,38 +56,18 @@ public class DessinVoiture extends JFrame {
 		dessinerParebrise(graphics );
 		graphics.setColor( COULEUR_DEFAUT );
 	}
-
-	private Point2D rotation(Point2D p, float angle) {
-		float teta = (float) Math.toRadians( -angle );
-		Point2D pPrime = new Point2D.Float();
-		pPrime.setLocation(
-				p.getX() * Math.cos( teta ) + (p.getY() * Math.sin( teta )),
-				- p.getX() * Math.sin( teta ) + (p.getY() * Math.cos( teta )));
-		return pPrime;
-	}
+	
 	private void dessinerCarosserie(Graphics graphics ) {
 		graphics.setColor( COULEUR_VOITURE );
 		Polygon carosserie = new Polygon();
 		
-		Point2D p1 = new Point2D.Float();
-		p1.setLocation(- DEMI_LONGUEUR_VOITURE, - DEMI_LARGEUR_VOITURE);
-		p1 = rotation(p1, angleVoiture);
-		carosserie.addPoint((int)(xPixelVoiture + p1.getX()), (int)(yPixelVoiture + p1.getY()));
+		ajouterPointSelonPositionEtAngle(carosserie, - DEMI_LONGUEUR_VOITURE, - DEMI_LARGEUR_VOITURE);
 		
-		Point2D p2 = new Point2D.Float();
-		p2.setLocation(- DEMI_LONGUEUR_VOITURE, DEMI_LARGEUR_VOITURE);
-		p2 = rotation(p2, angleVoiture);
-		carosserie.addPoint((int)(xPixelVoiture + p2.getX()), (int)(yPixelVoiture + p2.getY()));
+		ajouterPointSelonPositionEtAngle(carosserie, - DEMI_LONGUEUR_VOITURE, DEMI_LARGEUR_VOITURE);
 		
-		Point2D p3 = new Point2D.Float();
-		p3.setLocation(DEMI_LONGUEUR_VOITURE, DEMI_LARGEUR_VOITURE);
-		p3 = rotation(p3, angleVoiture);
-		carosserie.addPoint((int)(xPixelVoiture + p3.getX()), (int)(yPixelVoiture + p3.getY()));
+		ajouterPointSelonPositionEtAngle(carosserie, DEMI_LONGUEUR_VOITURE, DEMI_LARGEUR_VOITURE);
 		
-		Point2D p4 = new Point2D.Float();
-		p4.setLocation(DEMI_LONGUEUR_VOITURE, - DEMI_LARGEUR_VOITURE);
-		p4 = rotation(p4, angleVoiture);
-		carosserie.addPoint((int)(xPixelVoiture + p4.getX()), (int)(yPixelVoiture + p4.getY()));
+		ajouterPointSelonPositionEtAngle(carosserie, DEMI_LONGUEUR_VOITURE, - DEMI_LARGEUR_VOITURE);
 
 		graphics.fillPolygon( carosserie );
 	}
@@ -97,21 +77,28 @@ public class DessinVoiture extends JFrame {
 		
 		Polygon parebrise = new Polygon();
 		
-		Point2D p1 = new Point2D.Float();
-		p1.setLocation(0, - DEMI_LARGEUR_VOITURE);
-		p1 = rotation(p1, angleVoiture);
-		parebrise.addPoint((int)(xPixelVoiture + p1.getX()), (int)(yPixelVoiture + p1.getY()));
+		ajouterPointSelonPositionEtAngle(parebrise, 0, - DEMI_LARGEUR_VOITURE);
 		
-		Point2D p2 = new Point2D.Float();
-		p2.setLocation(0, DEMI_LARGEUR_VOITURE);
-		p2 = rotation(p2, angleVoiture);
-		parebrise.addPoint((int)(xPixelVoiture + p2.getX()), (int)(yPixelVoiture + p2.getY()));
+		ajouterPointSelonPositionEtAngle(parebrise, 0, DEMI_LARGEUR_VOITURE);
 		
-		Point2D p3 = new Point2D.Float();
-		p3.setLocation(DEMI_LONGUEUR_VOITURE, 0);
-		p3 = rotation(p3, angleVoiture);
-		parebrise.addPoint((int)(xPixelVoiture + p3.getX()), (int)(yPixelVoiture + p3.getY()));
+		ajouterPointSelonPositionEtAngle(parebrise, DEMI_LONGUEUR_VOITURE, 0);
 
 		graphics.fillPolygon( parebrise );
+	}
+	
+	private void ajouterPointSelonPositionEtAngle(Polygon forme, double x, double y) {
+		Point2D point = new Point2D.Float();
+		point.setLocation(x, y);
+		point = rotation(point, angleVoiture);
+		forme.addPoint((int)(xPixelVoiture + point.getX()), (int)(yPixelVoiture + point.getY()));
+	}
+
+	private Point2D rotation(Point2D p, float angle) {
+		float teta = (float) Math.toRadians( -angle );
+		Point2D pPrime = new Point2D.Float();
+		pPrime.setLocation(
+				p.getX() * Math.cos( teta ) + (p.getY() * Math.sin( teta )),
+				- p.getX() * Math.sin( teta ) + (p.getY() * Math.cos( teta )));
+		return pPrime;
 	}
 }
